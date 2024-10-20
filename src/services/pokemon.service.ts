@@ -1,5 +1,8 @@
 
+import { debug } from "console";
 import { openDB } from "./database.service";
+
+
 
 async function savePokemon(name: string, type: string): Promise<void> {
   const db = await openDB();
@@ -19,4 +22,11 @@ async function deletePokemon(name: string): Promise<void> {
   await db.close();
 }
 
-export {savePokemon, getAllPokemons, deletePokemon};
+
+async function patchPokemon(name: string, type: string): Promise<void> {
+  const db = await openDB();
+  await db.run('UPDATE pokemon SET type = ? WHERE name = ?', [type, name]);
+  await db.close();
+}
+
+export {savePokemon, getAllPokemons, deletePokemon, patchPokemon};

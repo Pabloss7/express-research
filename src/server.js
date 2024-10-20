@@ -51,6 +51,30 @@ app.delete('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(500).send('Error deleting Pokemon');
     }
 }));
+app.put('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const name = req.query.name;
+    const type = req.query.type;
+    (0, database_service_1.openDB)();
+    try {
+        yield (0, pokemon_service_1.deletePokemon)(name);
+        yield (0, pokemon_service_1.savePokemon)(name, type);
+        res.status(201).send('Pokemon updated');
+    }
+    catch (error) {
+        res.status(500).send('Error updating Pokemon');
+    }
+}));
+app.patch('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const name = req.query.name;
+    const type = req.query.type;
+    try {
+        yield (0, pokemon_service_1.patchPokemon)(name, type);
+        res.status(200).send('Pokemon type updated');
+    }
+    catch (error) {
+        res.status(500).send('Error updating Pokemon type');
+    }
+}));
 function initializeDB() {
     return __awaiter(this, void 0, void 0, function* () {
         yield (0, database_service_1.initialize)();

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.savePokemon = savePokemon;
 exports.getAllPokemons = getAllPokemons;
 exports.deletePokemon = deletePokemon;
+exports.patchPokemon = patchPokemon;
 const database_service_1 = require("./database.service");
 function savePokemon(name, type) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -32,6 +33,13 @@ function deletePokemon(name) {
     return __awaiter(this, void 0, void 0, function* () {
         const db = yield (0, database_service_1.openDB)();
         yield db.run('DELETE FROM pokemon WHERE name = ?', [name]);
+        yield db.close();
+    });
+}
+function patchPokemon(name, type) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const db = yield (0, database_service_1.openDB)();
+        yield db.run('UPDATE pokemon SET type = ? WHERE name = ?', [type, name]);
         yield db.close();
     });
 }
