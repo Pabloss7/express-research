@@ -39,7 +39,7 @@ app.get('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(500).send('Error fetching Pokemons');
     }
 }));
-//create a delete endpoint
+//delete endpoint
 app.delete('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.query.name;
     (0, database_service_1.openDB)();
@@ -51,6 +51,7 @@ app.delete('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function*
         res.status(500).send('Error deleting Pokemon');
     }
 }));
+//put endpoint to update the name and type of a pokemon
 app.put('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.query.name;
     const type = req.query.type;
@@ -64,6 +65,7 @@ app.put('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(500).send('Error updating Pokemon');
     }
 }));
+//patch endpoint to update the type of a pokemon
 app.patch('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const name = req.query.name;
     const type = req.query.type;
@@ -75,6 +77,7 @@ app.patch('/pokemon', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).send('Error updating Pokemon type');
     }
 }));
+//initialize the database before starting the server
 function initializeDB() {
     return __awaiter(this, void 0, void 0, function* () {
         yield (0, database_service_1.initialize)();
@@ -82,6 +85,7 @@ function initializeDB() {
     });
 }
 initializeDB();
+//open the database connection before starting the server and listen on port 3000
 app.listen(port, () => {
     (0, database_service_1.openDB)();
     console.log(`Server is running on http://localhost:${port}`);

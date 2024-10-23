@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "9b1ae6e5-c10a-4e8c-9e95-20fb90d9ef4b",
+		"name": "express_research",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39234263"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/pokemon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pokemon?name=Bulbasaur&type=grass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Bulbasaur"
+						},
+						{
+							"key": "type",
+							"value": "grass"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pokemon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pokemon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pokemon?name=pikachu&type=electric",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pokemon?name=pikachu&type=electric",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "pikachu"
+						},
+						{
+							"key": "type",
+							"value": "electric"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pokemon?name=charizard&type=fire_dragon",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pokemon?name=charizard&type=fire_dragon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "charizard"
+						},
+						{
+							"key": "type",
+							"value": "fire_dragon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/pokemon?name=bulbasaur",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pokemon?name=Bulbasaur",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Bulbasaur"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
