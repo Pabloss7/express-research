@@ -33,7 +33,7 @@ app.delete('/pokemon', async (req, res) => {
   openDB(); 
   try {
     await deletePokemon(name);
-    res.status(201).send('Pokemon deleted');
+    res.status(200).send('Pokemon deleted');
   } catch (error) {
     res.status(500).send('Error deleting Pokemon');
   }
@@ -46,7 +46,7 @@ app.put('/pokemon', async (req, res) => {
   try {
     await deletePokemon(name);
     await savePokemon(name, type);
-    res.status(201).send('Pokemon updated');
+    res.status(200).send('Pokemon updated');
   } catch (error) {
     res.status(500).send('Error updating Pokemon');
   }
